@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/Shop
     username: postgres
-    password:
+    password: Admin@2000
     driver-class-name: org.postgresql.Driver
     schema: public
 
@@ -15,3 +15,7 @@ spring:
       hibernate:
         default_schema: public
         globally_quoted_identifiers: true
+
+  graphql:
+    graphiql:
+      enabled: true

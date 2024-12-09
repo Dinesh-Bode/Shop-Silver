@@ -23,8 +23,11 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
+    @Column(name = "available_quantity")
+    private Integer availableQuantity;
+
     @Column(name = "image_url")
-    private String imageUrl; //TODO update with multiple image S3 bucket locations.
+    private String imageUrl;
 
     @Column(name = "category")
     private String category;

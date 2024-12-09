@@ -1,0 +1,14 @@
+type Query {
+    getAllProducts: [ProductDto]
+    productsByIds(productIds: [Int]): [ProductDto]
+}
+
+type ProductDto {
+    productId: Int
+    productName: String
+    price: Float
+    availableQuantity: Int
+    imageUrl: String
+    category: String
+    description: String
+}

@@ -20,9 +20,30 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductDto> getProducts() {
         List<Product> productList = productRepository.findAll();
-        //Use mapper to map the object to Dto.
+
         return productList.stream()
                 .map(value -> objectMapper.convertValue(value, ProductDto.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ProductDto> getProductById(List<Integer> productIds) {
+        List<Product> productList = productRepository.findAllById(productIds);
+        return productList.stream()
+                .map(value -> objectMapper.convertValue(value, ProductDto.class))
+                .collect(Collectors.toList());
+    }
+
+    public ProductDto createProductDto(Product product) {
+
+        return ProductDto.builder()
+                .productId(product.getProductId())
+                .productName(product.getProductName())
+                .price(product.getPrice())
+                .category(product.getCategory())
+                .availableQuantity(product.getAvailableQuantity())
+                .imageUrl(product.getImageUrl())
+                .description(product.getDescription())
+                .build();
     }
 }
